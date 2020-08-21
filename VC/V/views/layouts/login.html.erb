@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>rac community</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="shortcut icon" type="image/c-icon" href="<%= @s3_path %>/statics/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=5.0, minimum-scale=1.0,viewport-fit=cover">
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/2cbc40982b.js" crossorigin="anonymous"></script>
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="<%= @s3_path %>/statics/rotaract_logo.png" sizes="120x120"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"></head>
+  <body>
+    <header>
+      <div class="logo_title inline">
+        Rotaract
+        <img src="<%= @s3_path %>/statics/rotaract_logo.jpeg" alt="">
+      </div>
+    </header>
+    <%= yield %>
+  </body>
+</html>

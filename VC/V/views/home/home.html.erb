@@ -1,0 +1,105 @@
+<div class="page_base hb">
+  <div class="flash"><%= flash[:notice_nega] %></div>
+
+  <div class="entry_bs">
+    <div class="btn_bs">
+      <div class="ttl">
+        > ..あなたの "繋がる" を見つけよう
+      </div>
+      <a href="/manual" target="_blank">
+        <div class="cell btn_cell"><i class="fas fa-file-pdf"></i> 本ツールについて</div>
+      </a>
+      <br>
+      <%= link_to('/logout_action',{method:"POST"}) do %>
+        <div class="cell btn_cell"><i class="fas fa-power-off"></i> ログアウト</div>
+      <% end %>
+    </div>
+
+    <img class="bgi" src="<%= @s3_path %>/statics/top_0.jpeg" alt="" id="pv_img" data_active="0">
+  </div>
+  <div class="lr lrt">
+    <div class="ttl">
+      <div class="icon inline"><i class="fas fa-star"></i></div>
+      人気のトレンド
+    </div>
+    <div class="hrs" id="hrs_trend">
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+    </div>
+  </div>
+  <div class="lr">
+    <div class="ttl">
+      <div class="icon inline"><i class="fas fa-globe"></i></div>
+      地区行事
+    </div>
+    <div class="hrs _hrs" id="hrs_cate0">
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+    </div
+  <div class="lr">
+    <div class="ttl">
+      <div class="icon inline"><i class="fas fa-book-open"></i></div>
+      通常例会
+    </div>
+    <div class="hrs _hrs" id="hrs_cate1">
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+    </div>
+  </div>
+  <div class="lr">
+    <div class="ttl">
+      <div class="icon inline"><i class="fas fa-running"></i></div>
+      屋外例会
+    </div>
+    <div class="hrs _hrs" id="hrs_cate2">
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+    </div>
+  </div>
+  <div class="lr">
+    <div class="ttl">
+      <div class="icon inline"><i class="fas fa-hands-heart"></i></div>
+      社会奉仕
+    </div>
+    <div class="hrs _hrs" id="hrs_cate3">
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+    </div>
+  </div>
+  <div class="lr">
+    <div class="ttl">
+      <div class="icon inline"><i class="fas fa-wine-glass-alt"></i></div>
+      飲み会・交流
+    </div>
+    <div class="hrs _hrs" id="hrs_cate4">
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+      <div class="cl inline"></div>
+    </div>
+  </div>
+</div>
+
+<input type="hidden" id="page_js_status">
+<%= javascript_include_tag 'home.js', 'data-turbolinks-track': 'reload' %>

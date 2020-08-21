@@ -1,0 +1,188 @@
+<input type="hidden" id="event_id" value="<%= @event_id %>">
+
+<div class="page_base dcue_pb">
+  <div class="pbgi" id="ebgi">
+    <img src="<%= @s3_path %>/events/event_<%= @event_id %>/event_image.jpeg" alt="">
+  </div>
+  <div class="cb">
+    <div class="bx _like">
+      <button type="button" class="btn inline" onClick="send_like();">
+        <i class="fas fa-heart"></i>
+        <span id="like_btn_count">0</span>
+      </button>
+    </div>
+    <div class="bx _ttl">
+      <div class="button" id="ev_status">
+      </div>
+    </div>
+    <div class="bx _ttl">
+      <div class="ttl" id="ev_ttl"></div>
+    </div>
+    <div class="bx _ttl">
+      <div class="sttl" id="ev_sub_ttl"></div>
+    </div>
+    <div class="bx _dtls">
+      <div class="ttls">
+        <div class="icon inline">
+          <i class="far fa-comment-lines"></i>
+        </div>
+        イベント概要
+      </div>
+      <div class="dtls" id="ev_desc"></div>
+    </div>
+    <div class="bx _dtls">
+      <div class="ttls">
+        <div class="icon inline">
+          <i class="far fa-th-list"></i>
+        </div>
+        基本情報
+      </div>
+      <div class="dtlc">
+        <div class="grid">
+          <div class="indi">主催者 :</div>
+          <div class="content" id="ev_club_name"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">ジャンル :</div>
+          <div class="content" id="ev_category"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">登録締切 :</div>
+          <div class="content" id="ev_deadline"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">日付 :</div>
+          <div class="content" id="ev_sdate"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">時間 :</div>
+          <div class="content" id="ev_time"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">住所 :</div>
+          <div class="content" id="ev_addr"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">出席方法 :</div>
+          <div class="content" id="ev_perti"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">懇親会 :</div>
+          <div class="content" id="ev_after"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">登録費 :</div>
+          <div class="content" id="ev_price"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">参照ファイル :</div>
+          <div class="content" id="ev_attachment"></div>
+        </div>
+        <div id="canvas_map">
+        </div>
+      </div>
+    </div>
+    <div class="bx _list">
+      <div class="ttls">
+        <div class="icon inline"><i class="far fa-user-friends"></i></div>
+        参加予定のユーザー
+        <span class="span_prnt" id="usr_indi"></span>
+      </div>
+      <div class="lr lru">
+        <div class="hrs _hrs" id="hrs_user">
+          <div class="cl inline"></div>
+          <div class="cl inline"></div>
+          <div class="cl inline"></div>
+          <div class="cl inline"></div>
+          <div class="cl inline"></div>
+          <div class="cl inline"></div>
+          <div class="cl inline"></div>
+          <div class="cl inline"></div>
+          <div class="cl inline"></div>
+          <div class="cl inline"></div>
+          <div class="cla inline" id="user_all_btn">
+            <a href="/event_users?event_id=<%= @event_id %>" id="user_all_btn_a">
+              <i class="fas fa-users"></i>
+              <br>
+              --
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bx _list">
+      <div class="ttls">
+        <div class="icon inline"><i class="far fa-comment"></i></div>
+        コメント
+        <span class="span_prnt" id="cmnt_indi">--</span>
+      </div>
+      <div class="lr lrc">
+        <div class="vrs" id="hrs_comment">
+          <div class="cl"></div>
+          <div class="cl"></div>
+          <div class="cl"></div>
+          <div class="cl"></div>
+          <div class="cl"></div>
+          <div class="link_bs">
+            <a href="/event_comments?event_id=<%= @event_id %>">
+              <div class="link">
+                <i class="fas fa-comment"></i> 質問する >
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bx _btn">
+      <a class="btn" id="gglcl_register_btn" target="_blank">Google Calendarに登録</a>
+      <button class="btn like" type="button" onClick="send_like();">
+        <i class="fas fa-heart"></i> いいね！を送る
+      </button>
+      <div class="btn dummy">
+
+      </div>
+    </div>
+  </div>
+
+  <button class="abtn btn_cell" type="button" id="register_btn" onClick="register_query_modal();">
+    参加する
+  </button>
+
+  <div class="register_modal">
+    <div class="moda_base">
+      <button class="close" type="button" name="button" onClick="$('.register_modal').hide();">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="ttl">
+        参加方法を選択してください
+      </div>
+      <div class="rail_base inline">
+        <div class="sttl">参加方法</div>
+        <div class="rail">
+          <input type="radio" name="pti_" id="pti_1" value="1" checked>
+          <label for="pti_1">現地</label>
+          <input type="radio" name="pti_" id="pti_2" value="2">
+          <label for="pti_2">オンライン</label>
+        </div>
+      </div>
+      <br>
+      <div class="rail_base inline">
+        <div class="sttl">懇親会</div>
+        <div class="rail">
+          <input type="radio" name="ati_" id="ati_1" value="1" checked>
+          <label for="ati_1">参加しない</label>
+          <input type="radio" name="ati_" id="ati_2" value="2">
+          <label for="ati_2">参加する</label>
+        </div>
+      </div>
+      <br>
+      <div class="rail_base inline">
+        <button class="btn_cell" type="button" id="register_btn_submit" onClick="register_query();">登録</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<input type="hidden" id="page_js_status">
+<%= javascript_include_tag 'event_page.js', 'data-turbolinks-track': 'reload' %>

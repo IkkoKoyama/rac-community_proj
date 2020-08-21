@@ -1,0 +1,64 @@
+<div class="page_base espb">
+  <div class="ss">
+    <div class="br input_base">
+      <input type="radio" name="sti" id="sti_0" checked>
+      <label for="sti_0">
+        <i class="fas fa-bolt"></i>
+        30日以内
+      </label>
+      <input type="radio" name="sti" id="sti_1">
+      <label for="sti_1">
+        <i class="fas fa-book-open"></i>
+        通常
+      </label>
+      <input type="radio" name="sti" id="sti_2">
+      <label for="sti_2">
+        <i class="fas fa-running"></i>
+        屋外
+      </label>
+      <input type="radio" name="sti" id="sti_3">
+      <label for="sti_3">
+        <i class="fas fa-hands-heart"></i>
+        奉仕
+      </label>
+      <input type="radio" name="sti" id="sti_4">
+      <label for="sti_4">
+        <i class="fas fa-wine-glass-alt"></i>
+        交流
+      </label>
+      <div class="sldr"></div>
+    </div>
+    <div class="br br_mini input_base">
+      <input type="radio" name="oti" id="oti_0" checked>
+      <label for="oti_0">
+        <i class="fas fa-calendar-alt"></i>
+        日付
+      </label>
+      <input type="radio" name="oti" id="oti_1">
+      <label for="oti_1">
+        <i class="fas fa-heart"></i>
+        人気
+      </label>
+      <input type="radio" name="oti" id="oti_2">
+      <label for="oti_2">
+        <i class="fas fa-circle"></i>
+        未登録
+      </label>
+      <div class="sldr"></div>
+    </div>
+
+  </div>
+  <div class="hrs etc">
+    <div class="lr lrt">
+      <div class="hrs" id="event_table_cell">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('#tab_slider').css('left','calc(100% / 3)');
+</script>
+
+<input type="hidden" id="page_js_status">
+<%= javascript_include_tag 'search.js', 'data-turbolinks-track': 'reload' %>

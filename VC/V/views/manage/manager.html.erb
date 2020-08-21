@@ -1,0 +1,28 @@
+<input type="hidden" id="permission" value="<%= @permission %>">
+<input type="hidden" id="user_level" value="<%= @user_level %>">
+<input type="hidden" id="p_type" value="<%= @p_type %>">
+<input type="hidden" id="s_select" value="<%= @s_select %>">
+<input type="hidden" id="s_type" value="<%= @s_type %>">
+<input type="hidden" id="o_select" value="<%= @o_select %>">
+<input type="hidden" id="o_id" value="<%= @o_id %>">
+
+
+<div class="page_base management_base" id="content_base">
+</div>
+
+<div class="setting_modal_bs" id="setting_modal_image">
+  <div class="setting_modal setting_modal_image">
+    <div class="ttl">画像編集</div>
+    <div class="btn_bs">
+      <button class="cancel" type="button" id="image_reset_btn">やめる</button>
+      <button class="update" type="buttom" id="image_query_btn">決定</button>
+    </div>
+    <canvas id="image_canvas"></canvas>
+  </div>
+</div>
+
+<table style="display:none;" class="table_to_export" id="download_table_base">
+</table>
+
+<input type="hidden" id="page_js_status">
+<%= javascript_include_tag 'manager.js', 'data-turbolinks-track': 'reload' %>

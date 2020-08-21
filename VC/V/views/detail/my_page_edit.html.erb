@@ -1,0 +1,148 @@
+<div class="page_base dcue_pb dcu_pb">
+  <div class="cb">
+    <div class="bx _ttl"><div class="ttl" id="usr_name"></div></div>
+    <div class="bx _ttl"><div class="sttl">プロフィール編集</div></div>
+    <div class="bx _dtls _dtls_edit">
+      <div class="dtlc">
+        <input type="file" name="image_input_" id="image_input" accept="image/*">
+        <input type="checkbox" name="edit_input_" id="edit_input_0">
+        <input type="checkbox" name="edit_input_" id="edit_input_1">
+        <input type="checkbox" name="edit_input_" id="edit_input_2">
+        <input type="checkbox" name="edit_input_" id="edit_input_3">
+        <input type="checkbox" name="edit_input_" id="edit_input_4">
+
+        <label class="grid" for="image_input">
+          <div class="indi">アイコン : </div>
+          <div class="content" id="usr_icon">
+            <div class="user_icon">
+              <img src="<%= @s3_path %>/users/icon/user_icon_<%= @current_user_id %>.jpeg" alt="">
+            </div>
+          </div>
+          <div class="right_indi">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </label>
+        <label class="grid" for="edit_input_4">
+          <div class="indi">入会年度 : </div>
+          <div class="content" id="usr_join_year"></div>
+          <div class="right_indi">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </label>
+        <label class="grid" for="edit_input_2">
+          <div class="indi">職業 : </div>
+          <div class="content" id="usr_job"></div>
+          <div class="right_indi">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </label>
+        <label class="grid" for="edit_input_3">
+          <div class="indi">年齢 : </div>
+          <div class="content" id="usr_birth"></div>
+          <div class="right_indi">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </label>
+        <label class="grid" for="edit_input_0">
+          <div class="indi">自己紹介 : </div>
+          <div class="content" id="usr_desc"></div>
+          <div class="right_indi">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </label>
+        <label class="grid" for="edit_input_1">
+          <div class="indi">パスワード : </div>
+          <div class="content">*******</div>
+          <div class="right_indi">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </label>
+        <div class="result_indi"><%= flash[:notice_nega] %></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="setting_modal_bs" id="setting_modal_image">
+  <div class="setting_modal setting_modal_image setting_modal_icon">
+    <div class="ttl">アイコンの編集</div>
+    <div class="btn_bs">
+      <button class="cancel" type="button" id="icon_reset_btn">やめる</button>
+      <button class="update" type="buttom" id="icon_query_btn">アップロード</button>
+    </div>
+    <canvas id="event_header"></canvas>
+  </div>
+</div>
+<div class="setting_modal_bs" id="setting_modal_0">
+  <div class="setting_modal">
+    <form onsubmit="description_qeury(); return false;" name="description_form">
+      <div class="ttl">自己紹介文の編集</div>
+      <div class="ttl" style="font-size:.75rem;">※ #(シャープ)などの特殊文字は使用しないでください</div>
+      <textarea id="edit_textarea" name="textarea" rows="10"></textarea>
+      <div class="btn_bs">
+        <button class="cancel edit_cancel_btn" type="button">やめる</button>
+        <button class="update" type="submit">変更</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="setting_modal_bs" id="setting_modal_1">
+  <div class="setting_modal">
+    <%= form_tag("/change_password",{method:"POST",autocomplete:"off"}) do %>
+    <div class="ttl">パスワード変更</div>
+    <input type="password" name="password_0" placeholder="現在のパスワードを入力" required>
+    <input type="password" name="password_1" placeholder="新しいパスワードを入力" required>
+    <input type="password" name="password_2" placeholder="新しいパスワードを入力(確認)" required>
+    <div class="btn_bs">
+      <button class="cancel edit_cancel_btn" type="button">やめる</button>
+      <button class="update" type="submit">変更</button>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div class="setting_modal_bs" id="setting_modal_2">
+  <div class="setting_modal">
+    <form onsubmit="job_qeury(); return false;" name="job_form">
+      <div class="ttl">職業の編集</div>
+      <div class="ttl" style="font-size:.75rem;"></div>
+      <input type="text" name="job" value="" id="edit_job">
+      <div class="btn_bs">
+        <button class="cancel edit_cancel_btn" type="button">やめる</button>
+        <button class="update" type="submit">変更</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="setting_modal_bs" id="setting_modal_3">
+  <div class="setting_modal">
+    <form onsubmit="birth_qeury(); return false;" name="birth_form">
+      <div class="ttl">生年月日の編集</div>
+      <div class="ttl" style="font-size:.75rem;"></div>
+      <input type="date" name="birth" value="" id="edit_birth">
+      <div class="btn_bs">
+        <button class="cancel edit_cancel_btn" type="button">やめる</button>
+        <button class="update" type="submit">変更</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="setting_modal_bs" id="setting_modal_4">
+  <div class="setting_modal">
+    <form onsubmit="join_year_qeury(); return false;" name="join_year_form">
+      <div class="ttl">入会年度の編集</div>
+      <div class="ttl" style="font-size:.75rem;"></div>
+      <input type="number" name="join_year" value="" id="edit_join_year">
+      <div class="btn_bs">
+        <button class="cancel edit_cancel_btn" type="button">やめる</button>
+        <button class="update" type="submit">変更</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('#tab_slider').css('left','calc(100% / 3 * 2)');
+</script>
+
+<input type="hidden" id="page_js_status">
+<%= javascript_include_tag 'my_page_edit.js', 'data-turbolinks-track': 'reload' %>

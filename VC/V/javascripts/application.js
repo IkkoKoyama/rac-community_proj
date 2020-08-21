@@ -1,0 +1,9 @@
+//= require jquery
+//= require jquery.turbolinks
+//= require rails-ujs
+//= require turbolinks
+//= require l_cd_ns/FontAwesome_.js
+//= require l_cd_ns/cropper.min.js
+//= require l_cd_ns/jquery-cropper.min.js
+//= require script
+//= require serviceworker-companion

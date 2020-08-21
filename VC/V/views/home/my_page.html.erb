@@ -1,0 +1,100 @@
+<div class="page_base dcue_pb dcu_pb">
+  <div class="pbgi pubgi" id="ebgi">
+    <img src="<%= @s3_path %>/users/icon/user_icon_<%= @current_user_id %>.jpeg" alt="">
+  </div>
+
+  <div class="b_edit">
+    <a class="btn inline" href="/my_page_edit">プロフィールを編集する</a>
+  </div>
+  <% if @permission.to_i == 7 || @permission.to_i == 6 %>
+  <div class="b_edit">
+    <a class="btn inline" href="/manager_home" target="_blank">管理ページへ 移動する</a>
+  </div>
+  <% end %>
+  <div class="b_edit">
+    <a class="btn btn_logout inline" href="/logout_action" data-method="post" rel="nofollow">
+      <i class="fas fa-power-off"></i>
+      ログアウト
+    </a>
+  </div>
+  <div class="cb">
+    <div class="bx _ttl">
+      <div class="ttl" id="usr_name"></div>
+    </div>
+    <div class="bx _ttl">
+      <div class="sttl" id="usr_kana"></div>
+    </div>
+    <div class="bx _dtls">
+      <div class="ttls">
+        <div class="icon inline">
+          <i class="far fa-comment-lines"></i>
+        </div>
+        自己紹介
+      </div>
+      <div class="dtls" id="usr_desc"></div>
+    </div>
+    <div class="bx _dtls">
+      <div class="ttls">
+        <div class="icon inline">
+          <i class="far fa-th-list"></i>
+        </div>
+        基本情報
+      </div>
+      <div class="dtlc">
+        <div class="grid">
+          <div class="indi">eメール : </div>
+          <div class="content" id="usr_email"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">所属クラブ :</div>
+          <div class="content" id="usr_club_name"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">年齢 :</div>
+          <div class="content" id="usr_age"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">誕生日 :</div>
+          <div class="content" id="usr_birth_day"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">入会年度 :</div>
+          <div class="content" id="usr_join_year"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">役職① :</div>
+          <div class="content" id="usr_level"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">役職②　:</div>
+          <div class="content" id="usr_position"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">職業:</div>
+          <div class="content" id="usr_job"></div>
+        </div>
+      </div>
+    </div>
+    <div class="bx _list">
+      <div class="ttls">
+        <div class="icon inline"><i class="far fa-calendar-star"></i></div>
+        参加済み・参加予定のイベント
+        <span class="span_prnt" id="ev_indi"></span>
+      </div>
+      <div class="etc" id="event_table_cell">
+        <div class="cl inline"></div>
+        <div class="cl inline"></div>
+        <div class="cl inline"></div>
+        <div class="cl inline"></div>
+        <div class="cl inline"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('#tab_slider').css('left','calc(100% / 3 * 2)');
+</script>
+
+<input type="hidden" id="page_js_status">
+<%= javascript_include_tag 'my_page.js', 'data-turbolinks-track': 'reload' %>

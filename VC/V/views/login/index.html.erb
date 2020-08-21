@@ -1,0 +1,34 @@
+<div class="login_page">
+  <div class="login_base">
+    <div class="title_icon inline">
+      <img src="<%= @s3_path %>/statics/rotaract_logo.jpeg" alt="">
+    </div>
+    <p class="logo">Rotaract community</p>
+    <div class="login_box">
+      <%= form_tag("/login_action",{method:"POST",autocomplete:"off"}) do %>
+      <input type="email" name="email" id="email" placeholder="ID(メールアドレスを入力)"  aria-label="email_input" required>
+      <input type="password" name="password" id="password" placeholder="パスワードを入力"  aria-label="password_input" required>
+      <button type="submit">Login</button>
+      <% end %>
+    </div>
+    <p style="color:red;"><%= flash[:notice_nega] %></p>
+  </div>
+
+  <div class="login_footer">
+    <div class="icons_base inline">
+      <i class="fab fa-aws"></i>
+      <i class="fas fa-cloud"></i>
+      <i class="far fa-shield-alt"></i>
+      <i class="fas fa-database"></i>
+      <i class="fad fa-mobile"></i>
+      <i class="fad fa-laptop"></i>
+      <i class="fab fa-chrome"></i>
+      <i class="fab fa-safari"></i>
+    </div>
+    <br>
+    <div class="info_base inline">
+      <i class="far fa-copyright"></i>
+      2020-2021 Rotary International District 2580 Club of Tokyo Waseda. All rights reserved.
+    </div>
+  </div>
+</div>

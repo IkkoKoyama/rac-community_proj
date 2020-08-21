@@ -1,0 +1,15 @@
+<input type="hidden" id="event_id" value="<%= @event_id %>">
+
+<div class="page_base erelapb">
+  <div class="profile" id="profile">
+    <div class="pbgi" id="ebgi">
+      <img src="<%= @s3_path %>/events/event_<%= @event_id %>/event_image.jpeg" alt="">
+    </div>
+    <div id="profile_contents"></div>
+  </div>
+  <div class="utc" id="user_table_cell">
+  </div>
+</div>
+
+<input type="hidden" id="page_js_status">
+<%= javascript_include_tag 'event_users.js', 'data-turbolinks-track': 'reload' %>

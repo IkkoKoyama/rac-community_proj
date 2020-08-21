@@ -1,0 +1,84 @@
+<input type="hidden" id="club_id" value="<%= @club_id %>">
+
+<div class="page_base dcue_pb">
+  <div class="pbgi" id="ebgi">
+    <img src="<%= @s3_path %>/clubs/header/club_header_<%= @club_id %>.jpeg" alt="">
+  </div>
+
+  <div class="cb">
+    <div class="bx _ttl">
+      <div class="ttl" id="cl_name"></div>
+    </div>
+    <div class="bx _ttl">
+      <div class="sttl" id="cl_shortname"></div>
+    </div>
+    <div class="bx _dtls">
+      <div class="ttls">
+        <div class="icon inline">
+          <i class="far fa-comment-lines"></i>
+        </div>
+        クラブ紹介
+      </div>
+      <div class="dtls" id="cl_desc"></div>
+    </div>
+    <div class="bx _dtls">
+      <div class="ttls">
+        <div class="icon inline">
+          <i class="far fa-th-list"></i>
+        </div>
+        基本情報
+      </div>
+      <div class="dtlc">
+        <div class="grid">
+          <div class="indi">所属地区 :</div>
+          <div class="content" id="cl_district"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">メールアドレス :</div>
+          <div class="content" id="cl_email"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">リンク :</div>
+          <div class="content" id="cl_link"></div>
+        </div>
+        <div class="grid">
+          <div class="indi">設立年月日 :</div>
+          <div class="content" id="cl_esta"></div>
+        </div>
+      </div>
+    </div>
+    <div class="bx _list">
+      <div class="ttls">
+        <div class="icon inline"><i class="far fa-user-friends"></i></div>
+        メンバー
+        <span class="span_prnt" id="usr_indi"></span>
+      </div>
+      <div class="lr lru">
+        <div class="hrs _hrs" id="hrs_user">
+          <div class="cl inline"></div>
+          <div class="cl inline"></div>
+          <div class="cl inline"></div>
+          <div class="cl inline"></div>
+          <div class="cl inline"></div>
+        </div>
+      </div>
+    </div>
+    <div class="bx _list">
+      <div class="ttls">
+        <div class="icon inline"><i class="far fa-calendar-star"></i></div>
+        開催済・開催予定のイベント
+        <span class="span_prnt" id="ev_indi"></span>
+      </div>
+      <div class="etc" id="event_table_cell">
+        <div class="cl inline"></div>
+        <div class="cl inline"></div>
+        <div class="cl inline"></div>
+        <div class="cl inline"></div>
+        <div class="cl inline"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<input type="hidden" id="page_js_status">
+<%= javascript_include_tag 'club_page.js', 'data-turbolinks-track': 'reload' %>

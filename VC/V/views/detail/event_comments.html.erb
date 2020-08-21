@@ -1,0 +1,23 @@
+<input type="hidden" id="event_id" value="<%= @event_id %>">
+
+<div class="page_base erelapb">
+  <div class="profile" id="profile">
+    <div class="pbgi" id="ebgi">
+      <img src="<%= @s3_path %>/events/event_<%= @event_id %>/event_image.jpeg" alt="">
+    </div>
+    <div id="profile_contents"></div>
+  </div>
+  <div class="ctc" id="comment_table">
+  </div>
+  <div class="input_box">
+    <form onsubmit="comment_forms(); return false;" name="comment_form">
+      <label>
+        <input type="text" placeholder="分からないことを質問してみましょう" name="text" required>
+        <button class="button create" type="submit">投稿する</button>
+      </label>
+    </form>
+  </div>
+</div>
+
+<input type="hidden" id="page_js_status">
+<%= javascript_include_tag 'event_comments.js', 'data-turbolinks-track': 'reload' %>
